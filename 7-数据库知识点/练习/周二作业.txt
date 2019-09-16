@@ -1,0 +1,29 @@
+create database sh1905 charset=utf8;
+
+use sh1905;
+
+create table student (
+    id int primary key auto_increment,
+    name varchar(20) unique not null,
+    sex enum('男', '女') not null,
+    location varchar(20) not null,
+    description text,
+    birthday date default '1995-1-1',
+    math float(4, 1) not null default 0,
+    english float(4, 1) not null default 0,
+    only_child bool
+) charset=utf8 engine=innodb;
+
+insert into student
+(name, sex, location, description, birthday, math, english, only_child)
+values
+('刘一','男', '北京', '好学生', '2000/10/1', 49, 71, true),
+('陈二','女', '上海', '班长', '1995/3/2', 62, 66.7, true),
+('张三','男', '广州', '这孩子贼棒', '1996/9/9', 44, 86, true),
+('李四','女', '深圳', '班花，不骄傲', '1995/4/4', 77.5, 74, false),
+('王五','男', '成都', '阳光大男孩', '1998/10/5', 41, 75, false),
+('赵六','女', '武汉', '全宇宙三好学生', '1996/7/9', 82, 59.5, true),
+('孙七','男', '杭州', '全国数学奥林匹克竞赛冠军，还有谁！', '1993/5/2', 64.5, 85, false),
+('周八','女', '西安', '学习委员', '1994/8/30', 62, 98, true),
+('吴九','男', '郑州', '这家伙很懒，什么都没留下', '1995/6/1', 44, 36, true),
+('郑十','女', '南京', '这家伙很勤奋，但还是什么都没留下。。。', '1997/11/28', 67, 56, false);

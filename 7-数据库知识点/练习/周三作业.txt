@@ -1,0 +1,24 @@
+﻿作业:
+
+对今天的 student 表进行统计查询操作
+
+1. 找出每个地区数学最高分的学生的姓名
+create view v_exam1 as select sd.id,sd.name,sd.city,sc.math,sc.english from student as
+                       sd inner join score as sc on sc.id=sd.id; 
+
+ select v1.city,v1.name,v1.math as max_math from v_exam1 as v1,(select city,max(math) from v_exam1 group by 
+                      city )as v2 where v1.math=v2.`max(math)`and v1.city=v2.city ;    
+
+2. 找出每个地区英语最低分的学生
+与第一题同理
+select v1.city,v1.name,v1.math as min_english from v_exam1 as v1,(select city,min(english) fro
+                      m v_exam1 group by  city )as v2 where v1.english=v2.`min(english)`and v1.city=v2.city ;     
+ 
+3. 计算出男生、女生的英语、数学的平均分    男：70.6、48.2    女：70.84 、70.1
+ select new.sex,avg(english),avg(math) from (select student.id,sex,sc.math,sc.english f
+                      rom student inner join score as sc on student.id=sc.id) new  group by sex ;
+
+4. 计算出年龄最大与最小的学生的出生日期相差多少天  1982day
+select ( unix_timestamp(max(birthday))-unix_timestamp(min(birthday)))/(24*3600) as day
+                        from student ;   
+法2直接用datediff： select datediff(max(birthday),min(birthday)) from student;
