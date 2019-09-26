@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        {% for score in scores %}
+            <li>{{ score }}</li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <ul>
+        {% for score in scores %}
+            {% if loop.first %}
+                <li style="color:red">{{ score }}</li>
+            {% elif loop.last %}
+                <li style="color；green">{{ score }}</li>
+            {% else %}
+                <li style="color:blue">{{ score }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <hr>
+    {% for score in scores %}
+        {# loop.index 返回序号，默认从1开始，如果index0-->从0开始 #}
+        {{ loop.index }}
+    {% endfor %}
+    <hr>
+    {% for score in scores %}
+        {# loop.index 返回序号，默认从1开始，如果index0-->从0开始 #}
+        {{ loop.index0 }}
+    {% endfor %}
+    <hr>
+    {% for score in scores %}
+        {# loop.revindex 返回序号（倒序）-->到1结束，如果revindex0-->到0结束 #}
+        {{ loop.revindex }}
+    {% endfor %}
+        <hr>
+    {% for score in scores %}
+        {# loop.revindex 返回序号（倒序）-->到1结束，如果revindex0-->到0结束 #}
+        {{ loop.revindex0 }}
+    {% endfor %}
+</body>
+</html>

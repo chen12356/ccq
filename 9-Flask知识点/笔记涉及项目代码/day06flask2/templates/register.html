@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/static/jquery-1.8.3.js"></script>
+    <script>
+        $(function(){
+            $('button').click(function(){
+                var $name = $('#name').val()
+                $.get('/Register/',
+                    {'name':$name},
+                    function(data){
+                        window.location.href = '/index/'
+                    }
+                )
+            });
+        })
+    </script>
+</head>
+<body>
+    name:<input type="text" id="name">
+    <button>提交</button>
+</body>
+</html>

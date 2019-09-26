@@ -1,0 +1,41 @@
+{% extends 'userList.html' %}
+
+{% block Data %}
+<form action="/updateData1/?id={{emp.id}}" method="post">
+    <table class="table">
+        <tr class="table_header">
+            <td>
+
+            </td>
+            <td>
+                ID
+            </td>
+            <td>
+                NAME
+            </td>
+            <td>
+                Gendar
+            </td>
+            <td>
+                Age
+            </td>
+        </tr>
+        <tr class="row1">
+            <td>原始信息</td>
+            <td>{{ emp.id }}</td>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.sex }}</td>
+            <td>{{ emp.age }}</td>
+        </tr>
+          <tr class="row1">
+              <td>修改信息</td>
+            <td>{{ emp.id }}</td>
+            <td><input style="border:0px" type="text" name="name" ></td>
+            <td><input style="border:0px" type="text" name="sex" ></td>
+            <td><input style="border:0px" type="text" name="age" ></td>
+        </tr>
+    </table>
+    <input type="submit" style="margin-left:335px" value="保存" name="1">
+    <input type="submit" value="返回" name="0">
+</form>
+{% endblock %}

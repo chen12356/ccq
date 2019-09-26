@@ -1,0 +1,26 @@
+{% extends 'emp_base.html' %}
+
+{% block ext_css %}
+<style>
+    body{
+        width:800px;
+        margin:0 auto;
+        color:pink;
+    }
+</style>
+{% endblock %}
+
+{% block header %}
+    <table align="conter" rules="all" border="1">
+        {% for emp in emps %}
+            <tr>
+                <td>{{ emp.id }}</td>
+                <td>{{ emp.name }}</td>
+                <td>{{ emp.sex }}</td>
+                <td>{{ emp.age }}</td>
+                <td><a href="#">删除</a></td>
+                <td><a href="#">修改</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

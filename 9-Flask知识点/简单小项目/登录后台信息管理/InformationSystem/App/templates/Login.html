@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block Title %}
+    登录
+{% endblock %}
+
+
+{% block Data %}
+<form action="{{ url_for('blue.checkLogin')}}" method="POST">
+    username :<input type="text" name="username" style="margin-left:9px" placeholder="请输入用户名"><br>
+    password :<input type="password" name="pwd" style="margin:5px 10px;margin-left:10px"  placeholder="请输入密码"><br>
+    <input type="submit" value="登录" name="login"><br>
+    <a href="{{ url_for('blue.register')}}">还没有账户,请点击这里注册</a>
+
+</form>
+
+{% endblock %}
+

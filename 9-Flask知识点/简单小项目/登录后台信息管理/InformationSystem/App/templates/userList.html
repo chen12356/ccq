@@ -1,0 +1,49 @@
+﻿{% extends 'base.html' %}
+
+{% block Title %}
+后台信息管理
+{% endblock%}
+
+{% block Data %}
+	<table class="table">
+		<tr class="table_header">
+			<td>ID</td>
+			<td>NAME</td>
+			<td>Gendar</td>
+			<td>Age</td>
+			<td>DELETE</td>
+			<td>UPDATE</td>
+		</tr>
+		{% for emp in info_list.items %}
+		<tr class="row1">
+			<td>{{ emp.id }}</td>
+			<td><a href="{{url_for('blue.userInfo')}}?id={{ emp.id }}">{{ emp.name }}</a></td>
+			<td>{{ emp.sex }}</td>
+			<td>{{ emp.age }}</td>
+			<td><a href="/deleteData/?id={{emp.id}}">删除</a></td>
+			<td><a href="/updateData/?id={{emp.id}}">修改</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+
+	<!--分页功能-->
+	{% if info_list.has_prev %}
+		<a href="{{url_for('blue.userList')}}?page={{info_list.prev_num}}" style="margin-left:300px">上一页</a>
+		{% else %}
+			<a href="#" style="margin-left:300px">上一页</a>
+	{% endif %}
+
+	{% for p in info_list.iter_pages() %}
+		<a href="{{url_for('blue.userList')}}?page={{ p }}">{{ p }}</a>
+	{% endfor %}
+
+	{% if info_list.has_next %}
+		<a href="{{ url_for('blue.userList')}}?page={{ info_list.next_num }}">下一页</a>
+		{% else %}
+			<a href="#">下一页</a>
+	{% endif %}
+	<p>
+		<input class="button" onclick="location='{{ url_for('blue.login')}}'" type="button"
+			   value="退出系统"/>
+	</p>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% block ext_css %}
+
+    {% endblock %}
+</head>
+
+{# 注意：一些js代码写在body的最下面，在加个cdn，让js加载更快 #}
+<body>
+    {% block header %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block footer %}
+    {% endblock %}
+
+
+    {% block ext_js %}
+    {% endblock %}
+</body>
+</html>

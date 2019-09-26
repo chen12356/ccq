@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block Data %}
+<form action="{{ url_for('blue.userList') }}" method="post">
+<h1>
+    其他信息:
+</h1>
+<table class="table" style="font-size:16px">
+
+    <tr>
+        <td>真实姓名：</td>
+        <td>联系电话：</td>
+    </tr>
+    <tr>
+        <td>{{ user.name }}</td>
+        <td>{{ user.phone}}</td>
+    </tr>
+</table>
+<h1>
+    简要说明:
+</h1>
+<table>
+    <tr>
+        <td colspan="2">
+            <textarea cols="80" style="border:0px;resize:none;">{{user.ask}}</textarea>
+        </td>
+    </tr>
+</table>
+<br/>
+    <input type="submit" value="返回用户列表">
+</form>
+{% endblock %}
+

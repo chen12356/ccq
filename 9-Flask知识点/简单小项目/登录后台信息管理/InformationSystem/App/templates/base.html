@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="content-type"/>
+    <link href="../static/style.css" rel="stylesheet" type="text/css"/>
+    <title>base</title>
+</head>
+<body>
+<div id="wrap">
+    <!--  头部部分  -->
+    <div id="header">
+        <div id="rightheader">
+            <p>
+                2009/11/20
+                <br/>
+            </p>
+        </div>
+        <div id="topheader">
+            <h1 id="title">
+                <a href="#">Main</a>
+            </h1>
+        </div>
+        <div id="navigation">
+        </div>
+    </div>
+
+    <!--  内容部分  -->
+    <div id="content">
+        <p id="whereami">
+        </p>
+        <h1>
+            {% block Title %}
+            {% endblock %}
+        </h1>
+        {% block Data %}
+            具体内容部分
+        {% endblock %}
+    </div>
+
+    <!--  底部部分  -->
+    <div id="footer">
+        <div id="footer_bg">
+            ABC@126.com
+        </div>
+    </div>
+</div>
+</body>
+</html>

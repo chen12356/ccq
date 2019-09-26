@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {# 无参数 方法  #}
+     {% macro say() %}
+        宁德时代
+     {% endmacro %}
+
+    {# 下面是调用方法 #}
+    {{ say() }}
+
+    <hr>
+    {# 第二种 ,有参数 #}
+    {% macro getUser(name,age)%}
+        名字：{{name}}，年龄：{{age}}
+    {% endmacro %}
+    {{ getUser('加藤鹰',49 ) }}
+
+    <hr>
+    {# 第三种：导入其他文件的 宏定义方法 #}
+    {% from 'tomacro.html' import add %}
+    {{ add(33,44) }}
+
+</body>
+</html>
